@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracy Welburn | SUU 3100 E-Portfolio</title>
+    <style>
+        :root {
+            --primary: #0f4c5c;
+            --primary-dark: #103a4a;
+            --secondary: #1ea6a2;
+            --bg-light: #f3f7f8;
+            --card-bg: #ffffff;
+            --text-dark: #1f2a37;
+            --text-muted: #61707d;
+            --border: #dfe7eb;
+            --highlight: #eaf7f7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(180deg, #f7fafb 0%, #edf4f6 100%);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 4rem 1.5rem 3rem;
+            text-align: center;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 4px solid rgba(255,255,255,0.9);
+            object-fit: cover;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 18px 35px rgba(12, 41, 51, 0.28);
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.04em;
+        }
+
+        .subtitle {
+            color: #d7f7f9;
+            font-size: 1.08rem;
+            margin-bottom: 1.5rem;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .profile-summary {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 0 auto 1.8rem;
+            max-width: 760px;
+        }
+
+        .summary-pill {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+            color: #ebfeff;
+            padding: 0.5rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.35rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: white;
+            box-shadow: 0 12px 20px rgba(30, 166, 162, 0.22);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.7);
+            color: white;
+            background: rgba(255,255,255,0.04);
+        }
+
+        main {
+            max-width: 1050px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 24px rgba(15, 76, 92, 0.04);
+        }
+
+        h2 {
+            color: var(--primary-dark);
+            font-size: 1.55rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.03em;
+        }
+
+        p {
+            color: var(--text-dark);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(180deg, #f8fbfc, #eef6f8);
+            padding: 1.1rem 1rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.35rem;
+            color: var(--primary-dark);
+        }
+
+        .skill-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .experience-item, .project-card {
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-item:last-child, .project-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .role-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+        }
+
+        .company-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0.25rem 0 0.65rem;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .project-card {
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.3rem;
+            background: linear-gradient(180deg, #ffffff, #f9fbfb);
+            box-shadow: 0 6px 18px rgba(30, 45, 55, 0.03);
+        }
+
+        .project-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            padding-left: 1.3rem;
+            color: var(--text-dark);
+        }
+
+        li + li {
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem 2.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 2.8rem 1rem 2.2rem; }
+            section { padding: 1.4rem 1.1rem; }
+            .project-grid, .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <img src="profile.jpg" alt="Tracy Welburn portrait" class="profile-img">
+            <h1>Tracy Welburn</h1>
+            <p class="subtitle">Certified Nursing Assistant (CNA) &amp; Multi-Unit Operations Leader | SUU 3100 E-Portfolio</p>
+            <div class="profile-summary" aria-label="Profile summary">
+                <span class="summary-pill">Healthcare</span>
+                <span class="summary-pill">Operations</span>
+                <span class="summary-pill">Leadership</span>
+                <span class="summary-pill">Service</span>
+            </div>
+            <div class="contact-links">
+                <a href="mailto:tracywelburn7@gmail.com" class="btn btn-primary">Contact Email</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="leadership">
+            <h2>Leadership Style &amp; Vision</h2>
+            <p>My leadership framework combines <strong>Servant Leadership</strong> with <strong>Situational Adaptability</strong>, forged through years of managing fast-paced corporate restaurant environments and providing high-touch direct patient care as a CNA. As a mother of four, I lead with deep empathy, active listening, and calm emotional stability during high-stress situations. I excel at unifying diverse teams, optimizing operational workflows, and cultivating environments built on trust and mutual respect. What sets me apart is my ability to balance rigorous operational performance with compassionate care for people—whether managing kitchen lines, healthcare staff, or patient well-being.</p>
+        </section>
+
+        <section id="elevator-speech">
+            <h2>Elevator Pitch</h2>
+            <p>I am Tracy Welburn, an experienced operations manager and Certified Nursing Assistant combining real-world hospitality leadership with direct clinical healthcare experience. Having successfully managed multi-unit food and beverage operations at brands like Russo's New York Pizzeria and 85°C Bakery Cafe, I specialize in team building, inventory efficiency, and crisis intervention. As a 36-year-old working mother of four balancing academic advancement at SUU, my daily focus centers on resilience, accountability, and operational excellence. I bring strong interpersonal communication, crisis management, and empathetic leadership to team-oriented healthcare and operations environments.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Key Skills &amp; Accomplishments</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>High-Volume Operations &amp; Team Leadership</h3>
+                    <p>Proven success managing large, fast-paced teams, shift schedules, and operational workflows under intense deadline pressure.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Direct Patient Care &amp; Clinical Support</h3>
+                    <p>Skilled CNA proficient in vital sign monitoring, compassionate patient advocacy, hygiene care, and EHR documentation.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Crisis Intervention &amp; Stress Resilience</h3>
+                    <p>Adept at maintaining composure and decisive problem-solving in high-stress, fast-changing environments.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Cross-Functional Communication &amp; Customer Service</h3>
+                    <p>Exceptional interpersonal skills developed through multi-unit restaurant management and patient bedside care.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Inventory Control &amp; Quality Assurance</h3>
+                    <p>Experienced in food safety compliance, labor cost controls, supply ordering, and regulatory standards.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; color: var(--primary-dark);">Key Achievements</h3>
+            <ul style="padding-left: 1.25rem;">
+                <li><strong>Multi-Unit Operations Leadership:</strong> Successfully directed daily operations and team staffing at high-volume corporate locations including Russo's New York Pizzeria and 85°C Bakery Cafe.</li>
+                <li><strong>Patient Satisfaction &amp; Care Quality:</strong> Earned consistent recognition from nursing supervisors and families for high-empathy bedside manner and diligent clinical assistance as a Certified Nursing Assistant.</li>
+                <li><strong>Work-Life Balance &amp; Academic Progress:</strong> Maintained a strong GPA at SUU while balancing full-time professional responsibilities and raising four children.</li>
+            </ul>
+        </section>
+
+        <section id="values">
+            <h2>Core Values &amp; Philosophy</h2>
+            <p>My career choices and personal life are guided by three core values: <strong>Empathy, Resilience, and Service</strong>. As a mother of four and healthcare worker, I believe that authentic leadership begins with serving others and maintaining unconditional respect for human dignity. Resilience allows me to navigate high-stakes operational environments with grace, while integrity ensures I remain accountable to my team, patients, and personal standards in every situation.</p>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <div class="experience-item">
+                <div class="role-title">Certified Nursing Assistant (CNA) | Healthcare Facility</div>
+                <p>Provide direct daily nursing care and clinical support to patients, monitoring vital signs and assisting with daily living activities. Partner closely with registered nurses and clinical teams to maintain accurate patient records and ensure high safety and hygiene standards. Recognized for delivering compassionate, patient-centered care and maintaining calm during medical emergencies.</p>
+            </div>
+            <div class="experience-item">
+                <div class="role-title">Restaurant General Manager | 85°C Bakery Cafe</div>
+                <p>Oversaw daily high-volume store operations, team scheduling, inventory management, and customer service standards for a premier retail bakery cafe. Lead workforce training initiatives across front-of-house and baking departments while optimizing labor ratios to improve location profitability. Maintained strict compliance with health safety codes and quality assurance protocols.</p>
+            </div>
+            <div class="experience-item">
+                <div class="role-title">General Manager / Operations Lead | Russo's New York Pizzeria</div>
+                <p>Managed full-service kitchen, catering, and dining operations, supervising kitchen staff, delivery logistics, and guest relations. Reduced food waste and supply overhead through revised inventory tracking methods while driving repeat catering revenue. Fostered a positive team culture that improved staff retention and shift productivity.</p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects &amp; Case Studies</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Module 7 Final Project – Destructive Leadership Case Study</h3>
+                    <p>This case study analyzes ineffective organizational leadership by examining founder-driven micromanagement and structural governance failures in HBO's <em>Silicon Valley</em>. Using Northouse's leadership framework and peer-reviewed organizational literature, the project formulates a 5-year intervention roadmap focused on psychological safety, EQ executive coaching, and longitudinal retention metrics.</p>
+                </div>
+                <div class="project-card">
+                    <h3>Module 6 Company Snapshot – Ethical Leadership Analysis</h3>
+                    <p>This comparative analysis evaluates Ben &amp; Jerry’s under co-founders Ben Cohen and Jerry Greenfield as a benchmark for purpose-driven ethical leadership. The presentation maps corporate social responsibility strategies to the Six Pillars of Character and French &amp; Raven’s Five Bases of Power, demonstrating how 'Linked Prosperity' drives brand value.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Tracy Welburn | SUU 3100 E-Portfolio</p>
+    </footer>
+
+</body>
+</html>
